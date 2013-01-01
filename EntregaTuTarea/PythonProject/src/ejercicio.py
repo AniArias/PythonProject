@@ -67,4 +67,47 @@ class Ejercicio(state.State):
                         self.nombre= self.nombre + pygame.key.name(evento.key)
             
        
-    
+    def seleccion_ejercicio(self):
+        
+        
+        if self.random == 0 and self.nivel == 1:
+            self.background = pygame.image.load("data/images/paisaje.jpg").convert_alpha()
+            self.respuesta=10
+        
+        if self.random == 1 and self.nivel == 1:
+            self.background = pygame.image.load("data/images/city.png").convert_alpha()
+            self.respuesta=11
+        '''
+        if self.random == 2 and self.nivel == 1:
+            self.background = pygame.image.load("data/images/paisaje.jpg").convert_alpha()
+            self.respuesta=11
+        
+        if self.random == 3 and self.nivel == 1:
+            self.background = pygame.image.load("data/images/paisaje.jpg").convert_alpha()
+            self.respuesta=11
+        
+        if self.random == 4 and self.nivel == 1:
+            self.background = pygame.image.load("data/images/paisaje.jpg").convert_alpha()
+            self.respuesta=11
+         '''   
+        if self.random == 0 and self.nivel == 2:
+            self.background = pygame.image.load("data/images/city.png").convert_alpha()
+            self.respuesta=14
+        
+        if self.random == 1 and self.nivel == 2:
+            self.background = pygame.image.load("data/images/paisaje.jpg").convert_alpha()
+            self.respuesta=15
+        '''
+        if self.random == 2 and self.nivel == 2:
+            self.background = pygame.image.load("data/images/paisaje.jpg").convert_alpha()
+            self.respuesta=11
+        
+        if self.random == 3 and self.nivel == 2:
+            self.background = pygame.image.load("data/images/paisaje.jpg").convert_alpha()
+            self.respuesta=11
+        
+        if self.random == 4 and self.nivel == 2:
+            self.background = pygame.image.load("data/images/paisaje.jpg").convert_alpha()
+            self.respuesta=11    
+        '''
+
