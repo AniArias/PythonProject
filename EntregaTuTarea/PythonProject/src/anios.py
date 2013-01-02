@@ -23,4 +23,26 @@ class Anios(state.State):
     def exit(self):
         self.music.stop()
         
-   
+    def reason(self):
+        if self.teclas == self.nombre and self.termino == True:
+            self.perdio.play()
+            print("entro")
+            return ejercicio.Ejercicio(self.nivel, self.teclas)
+
+    def act(self):
+        self.display.blit(self.background, (0, 0))
+        pygame.display.flip()
+        if not self.termino:  
+            eventos=pygame.event.get()
+            for evento in eventos:
+                if evento.type == pygame.KEYDOWN:
+                    if evento.key == pygame.K_F3:
+                        self.teclas = self.nombre
+                        self.termino = True
+                    elif evento.key == pygame.K_BACKSPACE and len(self.nombre)>0:
+                        self.nombre= self.nombre[0:len(self.nombre)-1]
+                    else:
+                        self.nombre= self.nombre + pygame.key.name(evento.key)
+                        print(self.nombre)
+            
+       
