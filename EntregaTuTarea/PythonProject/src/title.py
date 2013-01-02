@@ -13,7 +13,7 @@ class Title(state.State):
         self.help_font_manager = pygame.font.Font("data/fonts/SEVEMFBR.TTF", 28)
         self.title_font_manager = pygame.font.Font("data/fonts/SEVEMFBR.TTF", 128)
 
-        self.title = self.title_font_manager.render("PLAY IT!", True, (255, 255, 255))
+        self.title = self.title_font_manager.render("ENTREGA TU TAREA", True, (255, 255, 255))
         self.title_rect = pygame.Rect((self.display.get_width()/2 - self.title.get_width()/2, self.display.get_height()/2 - self.title.get_height()*2),
             (self.title.get_width(), self.title.get_height()))
         self.title_color = "white"
@@ -141,14 +141,41 @@ class Title(state.State):
             self.developers = self.font_manager.render("CREADORES",True, (255, 255, 255))
             self.exit_game = self.font_manager.render("EXIT", True, (0, 0, 0))
             self.current_choice = 3
-
-
+    
+    def down(self):
+        if self.current_choice == 1:
+            self.jardin_game = self.font_manager.render("JARDIN", True, (0, 0, 0))
+            self.escuela_game = self.font_manager.render("ESCUELA", True, (0, 0, 0))
+            self.developers = self.font_manager.render("CREADORES",True, (255, 255, 255))
+            self.exit_game = self.font_manager.render("EXIT", True, (0, 0, 0))
+            self.current_choice = 3
+        elif self.current_choice == 2:
+            self.jardin_game = self.font_manager.render("JARDIN", True, (0, 0, 0))
+            self.escuela_game = self.font_manager.render("ESCUELA", True, (0, 0, 0))
+            self.developers = self.font_manager.render("CREADORES",True, (0, 0, 0))
+            self.exit_game = self.font_manager.render("EXIT", True, (255, 255, 255))
+            self.current_choice = 4
+    
+    def up(self):
+        if self.current_choice == 3:
+            self.jardin_game = self.font_manager.render("JARDIN", True, (255, 255, 255))
+            self.escuela_game = self.font_manager.render("ESCUELA", True, (0, 0, 0))
+            self.developers = self.font_manager.render("CREADORES",True, (0, 0, 0))
+            self.exit_game = self.font_manager.render("EXIT", True, (0, 0, 0))
+            self.current_choice = 1
+        elif self.current_choice == 4:
+            self.jardin_game = self.font_manager.render("JARDIN", True, (0, 0, 0))
+            self.escuela_game = self.font_manager.render("ESCUELA", True, (255, 255, 255))
+            self.developers = self.font_manager.render("CREADORES",True, (0, 0, 0))
+            self.exit_game = self.font_manager.render("EXIT", True, (0, 0, 0))
+            self.current_choice = 2
+            
     def animate_title(self):
         if self.title_color == "white":
-            self.title = self.title_font_manager.render("PLAY IT!", True, (0, 0, 0))
+            self.title = self.title_font_manager.render("ENTREGA TU TAREA", True, (0, 0, 0))
             self.title_color = "black"
         else:
-            self.title = self.title_font_manager.render("PLAY IT!", True, (255, 255, 255))
+            self.title = self.title_font_manager.render("ENTREGA TU TAREA", True, (255, 255, 255))
             self.title_color = "white"
 
         
