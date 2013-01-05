@@ -9,6 +9,7 @@ import surface_manager
 
 class Game(state.State):
     score = 0
+    score_L2 = 0
     streak_counter = 0
     combo_timer = time.clock()
     player
@@ -92,3 +93,6 @@ class Game(state.State):
 
 def update_caritas():
     Game.score += 1
+
+def update_caritas_L2():
+    Game.score_L2 += 1

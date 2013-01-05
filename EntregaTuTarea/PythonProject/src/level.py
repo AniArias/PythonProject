@@ -6,7 +6,7 @@ import state
 import plataforma
 import enemigo
 import surface_manager
-import sad_face
+import happy_face
 import game
 
 class Level(state.State):
@@ -58,7 +58,7 @@ class Level(state.State):
             self.time_since_last_enemyspawn = time.clock()
         
         if time.clock() >= self.time_since_last_sadspawn + .90:
-            surface_manager.add(sad_face.Sad())
+            surface_manager.add(happy_face.Happy())
             self.time_since_last_sadspawn = time.clock()
             
     def check_platforms(self):

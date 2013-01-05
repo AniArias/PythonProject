@@ -5,7 +5,7 @@ import arma
 import enemigo
 import plataforma
 import surface_manager
-import sad_face
+import happy_face
 
 class Player(pygame.sprite.DirtySprite):
     #shuri=10;
@@ -125,7 +125,7 @@ def on_sad_face(player):
     for item in collidelist:
         if type(item) is enemigo.Enemigo:
             continue
-        elif type(item) is sad_face.Sad():   
+        elif type(item) is happy_face.Happy():   
             return True  
     return False 
  
