@@ -40,7 +40,7 @@ class Title(state.State):
             
         self.timer = pygame.time.Clock()
 
-        self.music = pygame.mixer.Sound("data/sound/title_highscore.wav")
+        self.music = pygame.mixer.Sound("data/sound/game.wav")
         self.music.play(loops=-1)
 
     def exit(self):
