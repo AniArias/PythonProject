@@ -96,20 +96,27 @@ class Level_Escuela(state.State):
                 surface_manager.add(new_platform)
                 enemigos_L2 = enemigo.Enemy_L2(lista_p)
                 surface_manager.add(enemigos_L2)
+                
+            for lista_c in self.lista_caritas:
+                carita_L2 = happy_face.Happy_L2(lista_c)
+                surface_manager.add(carita_L2)
+                
             self.esc_cargado = True
             
     
     def lista_p(self):
         lista = [ [0,self.display.get_height(),self.display.get_width()],
-                  [0,self.display.get_height()*7/8,self.display.get_width()/3],
-                  [self.display.get_width()*2/3,self.display.get_height()*7/8,self.display.get_width()/3],
-                  [self.display.get_width()/12,self.display.get_height()*6/8,self.display.get_width()*2/12],
-                  [self.display.get_width()*7/16,self.display.get_height()*6/8,self.display.get_width()*2/17],
-                  [self.display.get_width()*21/34,self.display.get_height()*33/50,self.display.get_width()*13/100],
-                  [self.display.get_width()*7/10,self.display.get_height()*4/8,self.display.get_width()*3/10],
-                  [self.display.get_width()/2,self.display.get_height()*17/40,self.display.get_width()*13/100],
-                  [self.display.get_width()/12,self.display.get_height()*11/40,self.display.get_width()*9/25]]
+                  [0,self.display.get_height()*4/5,self.display.get_width()/3],
+                  [self.display.get_width()*2/3,self.display.get_height()*4/5,self.display.get_width()/3],
+                  [self.display.get_width()/12,self.display.get_height()*7/12,self.display.get_width()*2/12],
+                  [self.display.get_width()*7/16,self.display.get_height()*7/12,self.display.get_width()*2/17],
+                  [self.display.get_width()*21/34,self.display.get_height()*21/50,self.display.get_width()*13/100],
+                  [self.display.get_width()*7/10,self.display.get_height()/5,self.display.get_width()*3/10]]
                  
+        return lista
+    
+    def lista_carit(self):
+        lista = [[700,500],[100,500],[600,300],[75,100],[400,50],[700,50]]             
         return lista
     
 

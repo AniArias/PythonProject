@@ -81,5 +81,3 @@ class Happy_L2(pygame.sprite.DirtySprite):
                 self.image = pygame.transform.flip(self.image, False, True)
                 game.update_caritas_L2()
                 print game.Game.score_L2
-                #self.hit_sound.play()
-  
