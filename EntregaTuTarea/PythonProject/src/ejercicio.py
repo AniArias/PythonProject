@@ -21,21 +21,17 @@ class Ejercicio(state.State):
         self.background = pygame.image.load("data/images/paisaje.jpg").convert_alpha()
         
         self.music = pygame.mixer.Sound("data/sound/game.wav")
-        self.delaymu= pygame.time.delay(int(self.music.get_length()*1000))
         
         self.perdio = pygame.mixer.Sound("data/sound/perdiste.wav")
-        self.delayper= pygame.time.delay(int(self.perdio.get_length()*1000))
         
         self.oportunidad = pygame.mixer.Sound("data/sound/oportunidad.wav")
-        self.delayopor= pygame.time.delay(int(self.oportunidad.get_length()*1000))
         
         self.instrucciones = pygame.mixer.Sound("data/sound/instruccionesejercicios.wav")
-        self.delayins= pygame.time.delay(int(self.instrucciones.get_length()*1000))
         
         self.instrucciones.play()
-        self.delayins.__init__
+        pygame.time.delay(int(self.instrucciones.get_length()*1000))
 
-        self.music.play()
+        self.music.play(loops=-1)
         
         self.termino = False
         
@@ -67,8 +63,8 @@ class Ejercicio(state.State):
         elif self.teclas != str(self.respuesta) and self.termino and not self.correcto:
             print(self.respuesta)
             print("no entro")
-            self.oportunidad = pygame.mixer.Sound("data/sound/oportunidad.wav")
-            self.delayopor= pygame.time.delay(int(self.oportunidad.get_length()*1000))
+            self.oportunidad.play()
+            pygame.time.delay(int(self.oportunidad.get_length()*1000))
             self.oportunidades +=1
             
             if self.oportunidades > 3:
@@ -76,8 +72,8 @@ class Ejercicio(state.State):
                 print(self.respuesta)
                 print(self.random)
                 print(self.nivel)
-                self.perdio = pygame.mixer.Sound("data/sound/perdiste.wav")
-                self.delayper= pygame.time.delay(int(self.perdio.get_length()*1000))
+                self.perdio.play()
+                pygame.time.delay(int(self.perdio.get_length()*1000))
                 return title.Title()
             else:
                 self.letras=""
@@ -109,28 +105,28 @@ class Ejercicio(state.State):
 
         '''JARDIN'''
         if self.random == 0 and self.nivel == 1 and self.anios >= str(6) and self.anios < str(8):
-            self.background = pygame.image.load("data/images/ejerciciojardin1.jpg").convert_alpha()
+            self.background = pygame.image.load("data/images/ejercicio1jardin.jpg").convert_alpha()
             self.respuesta=8
         
         if self.random == 1 and self.nivel == 1 and self.anios >= str(6) and self.anios < str(8):
-            self.background = pygame.image.load("data/images/ejerciciojardin2").convert_alpha()
+            self.background = pygame.image.load("data/images/ejercicio2jardin.jpg").convert_alpha()
             self.respuesta=9
  
         if self.random == 2 and self.nivel == 1 and self.anios >= str(6) and self.anios < str(8):
-            self.background = pygame.image.load("data/images/ejerciciojardin3.jpg").convert_alpha()
+            self.background = pygame.image.load("data/images/ejercicio3jardin.jpg").convert_alpha()
             self.respuesta=7
         
         ''' ESCUELA 8-9'''
         if self.random == 0 and self.nivel == 2 and self.anios >= str(8) and self.anios <= str(9):
-            self.background = pygame.image.load("data/images/ejercicioescuela1.jpg").convert_alpha()
+            self.background = pygame.image.load("data/images/ejercicio1escuela.jpg").convert_alpha()
             self.respuesta= 5029092
             
         if self.random == 1 and self.nivel == 2 and self.anios >= str(8) and self.anios <= str(9):
-            self.background = pygame.image.load("data/images/ejercicioescuela2.jpg").convert_alpha()
+            self.background = pygame.image.load("data/images/ejercicio2escuela.jpg").convert_alpha()
             self.respuesta= 9369924
 
         if self.random == 2 and self.nivel == 2 and self.anios >= str(8) and self.anios <= str(9):
-            self.background = pygame.image.load("data/images/ejercicioescuela3.jpg").convert_alpha()
+            self.background = pygame.image.load("data/images/ejercicio3escuela.jpg").convert_alpha()
             self.respuesta= 54
         
         ''' ESCUELA 10-12'''

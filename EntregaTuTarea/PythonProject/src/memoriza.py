@@ -14,24 +14,23 @@ class Memoria(state.State):
         self.nivel = nivel
         self.teclas = ""
         self.nombre = ""
-        self.random = random.randint(0,2)
-        self.random2 = random.randint(0,1)
+        self.random = random.randint(0,1)
+        self.random2 = random.randint(0,2)
         self.respuesta=0  
         
         '''FONDO CUALQUIERA, BUSCARRR!!!'''
         self.background = pygame.image.load("data/images/city.png").convert_alpha()
+        self.display.blit(self.background, (0, 0))
+        pygame.display.flip()
             
         self.oportunidad = pygame.mixer.Sound("data/sound/oportunidad.wav")
-        self.delayopor= pygame.time.delay(int(self.oportunidad.get_length()*1000))
         
         self.perdio = pygame.mixer.Sound("data/sound/perdiste.wav")
-        self.delayper= pygame.time.delay(int(self.perdio.get_length()*1000))
         
         self.instru = pygame.mixer.Sound("data/sound/instruccionesmemoriza.wav")
-        self.delayinstru= pygame.time.delay(int(self.instru.get_length()*1000))
         
         self.instru.play()
-        self.delayinstru.__init__
+        pygame.time.delay(int(self.instru.get_length()*1000))
         
         self.termino = False
         self.correcto= False
@@ -57,7 +56,7 @@ class Memoria(state.State):
             print(self.respuesta)
             print("no entro")
             self.oportunidad.play()
-            self.delayopor.__init__
+            pygame.time.delay(int(self.oportunidad.get_length()*1000))
             self.oportunidades +=1
             
             if self.oportunidades > 3:
@@ -66,7 +65,7 @@ class Memoria(state.State):
                 print(self.random)
                 print(self.nivel)
                 self.perdio.play()
-                self.delayper.__init__
+                pygame.time.delay(int(self.perdio.get_length()*1000))
                 return title.Title()
             else:
                 self.letras=""
@@ -75,8 +74,6 @@ class Memoria(state.State):
                 self.nombre=""
 
     def act(self):
-        
-            
         self.timer.tick(60)
         surface_manager.clear(self.display, self.background)
         self.display.blit(self.background, (0, 0))
