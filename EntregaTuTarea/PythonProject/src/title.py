@@ -13,7 +13,7 @@ class Title(state.State):
         self.help_font_manager = pygame.font.Font("data/fonts/SEVEMFBR.TTF", 28)
         self.title_font_manager = pygame.font.Font("data/fonts/SEVEMFBR.TTF", 128)
 
-        self.title = self.title_font_manager.render("ENTREGA TU TAREA", True, (255, 255, 255))
+        self.title = self.title_font_manager.render("PLAY IT!", True, (255, 255, 255))
         self.title_rect = pygame.Rect((self.display.get_width()/2 - self.title.get_width()/2, self.display.get_height()/2 - self.title.get_height()*2),
             (self.title.get_width(), self.title.get_height()))
         self.title_color = "white"
@@ -40,7 +40,7 @@ class Title(state.State):
             
         self.timer = pygame.time.Clock()
 
-        self.music = pygame.mixer.Sound("data/sound/game.wav")
+        self.music = pygame.mixer.Sound("data/sound/musica1.wav")
         self.music.play(loops=-1)
 
     def exit(self):
@@ -78,6 +78,7 @@ class Title(state.State):
     def act(self):
         self.timer.tick(40)
         self.animate_title()
+
         self.display.blit(self.background, (0, 0))
         if self.show_help:
             self.display.blit(self.help_image, self.help_image_rect)
@@ -170,12 +171,15 @@ class Title(state.State):
             self.exit_game = self.font_manager.render("EXIT", True, (0, 0, 0))
             self.current_choice = 2
             
+            
+            
+
     def animate_title(self):
         if self.title_color == "white":
-            self.title = self.title_font_manager.render("ENTREGA TU TAREA", True, (0, 0, 0))
+            self.title = self.title_font_manager.render("PLAY IT!", True, (0, 0, 0))
             self.title_color = "black"
         else:
-            self.title = self.title_font_manager.render("ENTREGA TU TAREA", True, (255, 255, 255))
+            self.title = self.title_font_manager.render("PLAY IT!", True, (255, 255, 255))
             self.title_color = "white"
 
         
