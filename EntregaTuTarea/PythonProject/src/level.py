@@ -83,6 +83,7 @@ class Level_Escuela(state.State):
         self.background = pygame.image.load("data/images/city.png")
         self.display.blit(self.background, (0, 0))
         self.lista = self.lista_p()
+        self.lista_caritas = self.lista_carit()
         self.esc_cargado = False
         self.enter()
 
