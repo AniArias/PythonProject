@@ -19,7 +19,7 @@ class Memoria(state.State):
         self.respuesta=0  
         
         '''FONDO CUALQUIERA, BUSCARRR!!!'''
-        self.background = pygame.image.load("data/images/city.png").convert_alpha()
+        self.background = pygame.image.load("data/images/secuencia.jpg").convert_alpha()
         self.display.blit(self.background, (0, 0))
         pygame.display.flip()
             

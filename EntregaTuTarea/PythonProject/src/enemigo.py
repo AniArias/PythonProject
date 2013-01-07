@@ -48,7 +48,7 @@ class Enemigo(pygame.sprite.DirtySprite):
                 self.is_hit = True
                 self.image = pygame.transform.flip(self.image, False, True)
                 self.hit_sound.play()
-                game.update_caritas()
+                #game.update_caritas()
 
 
 class Enemy_L2(pygame.sprite.DirtySprite):

@@ -30,10 +30,16 @@ class Game(state.State):
         self.music = pygame.mixer.Sound("data/sound/game.wav")
         self.music.play(loops=-1)
         self.perdio=pygame.mixer.Sound("data/sound/perdiste.wav")
-        self.p_vez = True
+        self.instruc = pygame.mixer.Sound("data/sound/instruccionesjuego.wav")
+        self.p_vez1 = False
+        self.p_vez2 = False
+        if self.nivel == 1:
+            self.p_vez1 = True
+        else:
+            self.p_vez2 = True
         self.display.blit(self.background, (0, 0))
         pygame.display.flip()
-        self.perdio.play()
+        
     def exit(self):
         self.music.stop()
         Game.score = 0
@@ -63,9 +69,6 @@ class Game(state.State):
         
         self.timer.tick(60)
         surface_manager.clear(self.display, self.background)
-        if self.p_vez:
-            self.perdio.play()
-            self.p_vez = False
         
         keys = pygame.key.get_pressed()
         if keys[K_RIGHT]:
@@ -89,6 +92,11 @@ class Game(state.State):
         surface_manager.update()
         dirty_rects = surface_manager.draw(self.display)
         pygame.display.update(dirty_rects)
+        
+        if self.p_vez1:
+            self.instruc.play()
+            pygame.time.delay(int(self.instruc.get_length()*1000))
+            self.p_vez1 = False
 
 
 def update_caritas():

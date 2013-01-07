@@ -20,7 +20,7 @@ class Ejercicio(state.State):
         
         self.background = pygame.image.load("data/images/paisaje.jpg").convert_alpha()
         
-        self.music = pygame.mixer.Sound("data/sound/game.wav")
+        self.music = pygame.mixer.Sound("data/sound/musica1.wav")
         
         self.perdio = pygame.mixer.Sound("data/sound/perdiste.wav")
         
@@ -28,18 +28,13 @@ class Ejercicio(state.State):
         
         self.instrucciones = pygame.mixer.Sound("data/sound/instruccionesejercicios.wav")
         
-        self.instrucciones.play()
-        pygame.time.delay(int(self.instrucciones.get_length()*1000))
-
         self.music.play(loops=-1)
         
-        self.termino = False
-        
+        self.termino = False 
        
         self.anos=7
         self.correcto= False
         self.oportunidades = 0
-        
         print(self.random)
         print(self.nivel)
         print(self.anios)
@@ -49,6 +44,10 @@ class Ejercicio(state.State):
         print(self.nivel)
         print(self.anios)
         print(self.respuesta)
+        self.display.blit(self.background, (0, 0))
+        pygame.display.flip()
+        self.instrucciones.play()
+        pygame.time.delay(int(self.instrucciones.get_length()*1000))
         
     def exit(self):
         self.music.stop()

@@ -59,7 +59,6 @@ class Title(state.State):
                             return memoriza.Memoria(self.current_choice)
                         elif self.current_choice == 2:
                             return memoriza.Memoria(self.current_choice)
-
                         elif self.current_choice == 3:
                             self.current_choice = 3
                             

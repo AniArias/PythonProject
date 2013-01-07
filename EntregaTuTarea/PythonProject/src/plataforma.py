@@ -13,22 +13,25 @@ class Plataforma(pygame.sprite.Sprite):
         self.pos_x = self.display.get_width()
         self.pos_y = random.randint(self.display.get_height() - self.rect.height*5, self.display.get_height() - self.rect.height)
         self.nivel= nivel
-        
+        self.saltar = pygame.mixer.Sound("data/sound/saltar.wav")
+             
     def update(self):
         if self.pos_x < 0 - self.rect.width:
             surface_manager.remove(self)
             return
         else:
-
             if self.nivel==1:
                 self.pos_x -= 1
             elif self.nivel==2:
                 self.pos_x -= 3
             elif self.nivel==3:
                 self.pos_x -=4
-            else:
-                self.pos_x -=0  
+        
+        #if self.pos_x < 150 - self.rect.width:
+            #self.saltar.play()       
+            
         self.rect.topleft = (self.pos_x, self.pos_y)
+    
 
 class StartingPlatform(pygame.sprite.Sprite):
     def __init__(self, img_location,nivel):
@@ -39,21 +42,22 @@ class StartingPlatform(pygame.sprite.Sprite):
         self.pos_x = 0
         self.pos_y = self.display.get_height() - 100
         self.nivel= nivel
+        self.saltar = pygame.mixer.Sound("data/sound/saltar.wav")
 
     def update(self):
         if self.pos_x < 0 - self.rect.width:
             surface_manager.remove(self)
             return
         else:
-            
             if self.nivel==1:
                 self.pos_x -= 1
             elif self.nivel==2:
                 self.pos_x -= 3
             elif self.nivel==3:
                 self.pos_x -=4
-            else:
-                self.pos_x -=0
+        
+        #if self.pos_x < 150 - self.rect.width:
+            #self.saltar.play()
 
         self.rect.topleft = (self.pos_x, self.pos_y)
 

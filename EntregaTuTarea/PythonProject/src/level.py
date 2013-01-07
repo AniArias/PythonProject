@@ -17,15 +17,17 @@ class Level(state.State):
         self.num_of_platforms = 4
         self.background = pygame.image.load("data/images/paisaje.jpg")
         self.display.blit(self.background, (0, 0))
+        self.instr2 = pygame.mixer.Sound("data/sound/instruccionesnivel2.wav")
+        self.instr3 = pygame.mixer.Sound("data/sound/instruccionesnivel3.wav")
+        self.instr2_Rep = True
+        self.instr3_Rep = False
         self.nivel=1
         self.enter()
         
     def enter(self):
-        
         new_platform = plataforma.StartingPlatform("data/images/platform.png",self.nivel)
         surface_manager.add(new_platform)
         self.current_platforms.append(new_platform)
-
         self.time_since_last_enemyspawn = time.clock()
         self.time_since_last_sadspawn = time.clock()
 
@@ -34,13 +36,20 @@ class Level(state.State):
 
     def act(self):
         if game.Game.score == 0:
-            self.nivel = 0
+            self.nivel = 1
         elif game.Game.score > 0 and game.Game.score <=3:
             self.nivel = 1
-        elif game.Game.score > 3 and game.Game.score <=6:
+        elif game.Game.score > 3 and game.Game.score <=6 and self.instr2_Rep:
             self.nivel= 2
-        else:
-            self.nivel=3
+            self.instr2.play()
+            pygame.time.delay(int(self.instr2.get_length()*1000))
+            self.instr2_Rep = False
+            self.instr3_Rep = True
+        elif game.Game.score > 6 and self.instr3_Rep:
+                self.nivel=3
+                self.instr3.play()
+                pygame.time.delay(int(self.instr3.get_length()*1000))
+                self.instr3_Rep = False
         
         print(game.Game.score)
         print(self.nivel)
